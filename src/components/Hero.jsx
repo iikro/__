@@ -88,7 +88,7 @@ const Hero = () => {
       >
         <motion.h1
           variants={titleVariants}
-          className="font-serif font-medium tracking-tight leading-[0.9] mb-[max(2vh,0.75rem)] text-gray-900 dark:text-[#f5f5f7] px-2"
+          className="font-serif font-medium tracking-tight leading-[0.9] mb-1 text-gray-900 dark:text-[#f5f5f7] px-2"
           style={{ fontSize: 'clamp(2.8rem, 12vw, 10rem)' }}
         >
           ikro<span className="text-[#0071e3] dark:text-[#0a84ff] drop-shadow-[0_0_15px_rgba(0,113,227,0.8)] dark:drop-shadow-[0_0_20px_rgba(10,132,255,1)]">.</span>dev
@@ -96,7 +96,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700 dark:from-gray-300 dark:to-gray-100 mb-[max(3vh,1rem)]"
+          className="font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700 dark:from-gray-300 dark:to-gray-100 mb-2"
           style={{ fontSize: 'clamp(0.8rem, 2.5vw, 2.2rem)' }}
         >
           {displayText}<span className="inline-block w-[2px] h-[0.8em] bg-current ml-1 animate-pulse"></span>
@@ -105,9 +105,9 @@ const Hero = () => {
         {/* Carrossel: slide no mobile, fade no desktop */}
         <motion.div
           variants={itemVariants}
-          className="overflow-hidden mb-[max(5vh,1.5rem)] w-full flex justify-center"
+          className="overflow-hidden mb-6 w-full flex justify-center"
         >
-          <div className="relative h-20 w-[88vw] md:w-[50vw] max-w-[600px] overflow-hidden">
+          <div className="relative h-14 w-[88vw] md:w-[50vw] max-w-[600px] overflow-hidden">
             <motion.div
               key={activePhrase}
               initial={isMobile ? { x: 80, opacity: 0 } : { opacity: 0, y: 6 }}
