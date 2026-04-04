@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
 import { FaLinkedinIn, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 
 const phrases = [
   { text: "Experiências digitais", highlight: "nativas e fluidas." },
@@ -154,7 +154,7 @@ const Hero = () => {
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className={`glass-material flex items-center justify-center p-4 rounded-full transition-colors duration-300 ${link.colorClass} ${link.hoverClass}`}
+              className={`glass-material flex items-center justify-center p-3 md:p-4 rounded-full transition-colors duration-300 ${link.colorClass} ${link.hoverClass}`}
             >
               {link.icon}
             </motion.a>
