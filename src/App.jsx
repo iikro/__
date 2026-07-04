@@ -64,11 +64,11 @@ function App() {
           />
         </div>
 
-        <main className="relative z-10 flex flex-grow flex-col items-center justify-center w-full px-5 py-24 sm:px-8 sm:py-20">
+        <main className="relative z-10 flex flex-grow flex-col items-center justify-center w-full pt-[5vh] pb-[5vh]">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 2.2, duration: 1 }}
             className="w-full flex flex-col items-center"
           >
             <ThemeToggle />
