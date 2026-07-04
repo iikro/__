@@ -9,6 +9,13 @@ const phrases = [
   { text: "Interfaces", highlight: "que encantam" },
 ];
 
+const contactLinks = [
+  { href: "https://www.linkedin.com/in/ikro/", label: "LinkedIn", colorClass: "social-link text-[#0077b5]", icon: <FaLinkedinIn size="1.18em" /> },
+  { href: "https://github.com/iikro", label: "GitHub", colorClass: "social-link text-gray-950 dark:text-white", icon: <FaGithub size="1.18em" /> },
+  { href: "https://wa.me/5566999520670", label: "WhatsApp", colorClass: "social-link text-[#25D366]", icon: <FaWhatsapp size="1.18em" /> },
+  { href: "https://www.instagram.com/iikro__/", label: "Instagram", colorClass: "social-link text-[#E1306C]", icon: <FaInstagram size="1.18em" /> }
+];
+
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const fullText = "Software Engineer";
@@ -48,8 +55,8 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 3
+        staggerChildren: 0.14,
+        delayChildren: 2.75
       }
     }
   };
@@ -60,10 +67,7 @@ const Hero = () => {
       y: 0,
       opacity: 1,
       filter: 'blur(0px)',
-      transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1]
-      }
+      transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
@@ -73,60 +77,58 @@ const Hero = () => {
       y: 0,
       opacity: 1,
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 300, damping: 24 }
+      transition: { type: 'spring', stiffness: 260, damping: 28 }
     }
   };
 
   return (
-    <section className="relative w-full px-[5vw] flex flex-col items-center justify-center text-center">
+    <section className="relative w-full flex flex-col items-center justify-center text-center">
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-col items-center"
+        className="relative z-10 flex w-full max-w-5xl -translate-y-3 flex-col items-center sm:-translate-y-5"
       >
         <motion.h1
           variants={titleVariants}
           className="font-serif font-medium tracking-tight leading-[0.9] mb-1 text-gray-900 dark:text-[#f5f5f7] px-2 shimmer-text"
           style={{ fontSize: 'clamp(2.8rem, 12vw, 10rem)' }}
         >
-          ikro<span className="text-[#0071e3] dark:text-[#0a84ff] drop-shadow-[0_0_15px_rgba(0,113,227,0.8)] dark:drop-shadow-[0_0_20px_rgba(10,132,255,1)]">.</span>dev
+          ikro<span className="brand-dot text-[#0071e3] dark:text-[#0a84ff] drop-shadow-[0_0_15px_rgba(0,113,227,0.8)] dark:drop-shadow-[0_0_20px_rgba(10,132,255,1)]">.</span>dev
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700 dark:from-gray-300 dark:to-gray-100 mb-2"
+          className="font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700 dark:from-gray-300 dark:to-gray-100 mb-3"
           style={{ fontSize: 'clamp(0.8rem, 2.5vw, 2.2rem)' }}
         >
-          {displayText}<span className="inline-block w-[2px] h-[0.8em] bg-current ml-1 animate-pulse"></span>
+          {displayText}<span className="inline-block w-[2px] h-[0.8em] bg-gray-700 dark:bg-white/90 ml-1 animate-pulse"></span>
         </motion.p>
 
-        {/* Carrossel: slide no mobile, fade no desktop */}
         <motion.div
           variants={itemVariants}
-          className="overflow-hidden mb-6 w-full flex justify-center"
+          className="mb-8 flex w-full justify-center overflow-hidden"
         >
-          <div className="relative h-14 w-[88vw] md:w-[50vw] max-w-[600px] overflow-hidden">
+          <div className="relative h-14 w-full max-w-[34rem] overflow-hidden px-2 sm:h-16">
             <motion.div
               key={activePhrase}
-              initial={isMobile ? { x: 80, opacity: 0 } : { opacity: 0, y: 6 }}
+              initial={isMobile ? { x: 80, opacity: 0 } : { opacity: 0.58, y: 4 }}
               animate={isMobile ? { x: 0, opacity: 1 } : { opacity: 1, y: 0 }}
               exit={isMobile ? { x: -80, opacity: 0 } : { opacity: 0, y: -6 }}
               transition={
                 isMobile
                   ? { type: 'spring', stiffness: 280, damping: 28 }
-                  : { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }
+                  : { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }
               }
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center px-2"
             >
               <span
-                className="glass-material inline-flex items-center gap-2 px-6 py-4 rounded-2xl text-gray-800 dark:text-gray-100 font-medium tracking-tight shadow-lg cursor-default"
-                style={{ fontSize: 'clamp(0.7rem, 1.6vw, 1.3rem)' }}
+                className="phrase-card glass-material inline-flex max-w-full items-center gap-3 rounded-[1.35rem] px-5 py-3 text-sm font-semibold leading-5 text-[#1d1d1f] shadow-none cursor-default dark:text-[#f5f5f7] sm:px-7 sm:py-4 sm:text-base md:text-lg"
               >
-                {phrases[activePhrase].text}
-                <div className="w-px h-[1.2em] bg-gray-400/30 dark:bg-gray-600/30 mx-1" />
-                <span className="text-[#0071e3] dark:text-[#0a84ff] font-semibold drop-shadow-[0_0_10px_rgba(0,113,227,0.7)]">
+                <span className="truncate">{phrases[activePhrase].text}</span>
+                <span className="h-[1.15em] w-px shrink-0 bg-black/10 dark:bg-white/12" />
+                <span className="truncate font-semibold text-accent dark:text-accent-dark">
                   {phrases[activePhrase].highlight}
                 </span>
               </span>
@@ -134,27 +136,21 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Contact icons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap gap-4 md:gap-6 items-center justify-center"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4"
         >
-          {[
-            { href: "https://www.linkedin.com/in/ikro/", label: "LinkedIn", colorClass: "text-[#0077b5]", hoverClass: "hover:bg-[#0077b5]/10 hover:border-[#0077b5]/30", icon: <FaLinkedinIn size="1.2em" /> },
-            { href: "https://github.com/iikro", label: "GitHub", colorClass: "text-gray-900 dark:text-white", hoverClass: "hover:bg-gray-500/10 hover:border-gray-500/30", icon: <FaGithub size="1.2em" /> },
-            { href: "https://wa.me/5566999520670", label: "WhatsApp", colorClass: "text-[#25D366]", hoverClass: "hover:bg-[#25D366]/10 hover:border-[#25D366]/30", icon: <FaWhatsapp size="1.2em" /> },
-            { href: "https://www.instagram.com/iikro__/", label: "Instagram", colorClass: "text-[#E1306C]", hoverClass: "hover:bg-[#E1306C]/10 hover:border-[#E1306C]/30", icon: <FaInstagram size="1.2em" /> }
-          ].map((link, index) => (
+          {contactLinks.map((link, index) => (
             <Magnetic key={index}>
               <motion.a
                 href={link.href}
                 target={link.href.startsWith('http') ? "_blank" : undefined}
                 rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
                 aria-label={link.label}
-                whileHover={{ scale: 1.15, y: -5 }}
+                whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className={`glass-material flex items-center justify-center p-3 md:p-4 rounded-full transition-colors duration-300 ${link.colorClass} ${link.hoverClass}`}
+                transition={{ type: "spring", stiffness: 360, damping: 22 }}
+                className={`glass-material flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 sm:h-14 sm:w-14 ${link.colorClass}`}
               >
                 {link.icon}
               </motion.a>

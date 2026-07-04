@@ -21,7 +21,7 @@ const Intro = ({ onComplete }) => {
         className="font-serif font-medium tracking-tight leading-[0.9] text-gray-900 dark:text-[#f5f5f7]"
         style={{ fontSize: 'clamp(2.8rem, 12vw, 10rem)' }}
       >
-        ikro<span className="text-[#0071e3] dark:text-[#0a84ff] drop-shadow-[0_0_15px_rgba(0,113,227,0.8)] dark:drop-shadow-[0_0_20px_rgba(10,132,255,1)]">.</span>dev
+        ikro<span className="brand-dot text-[#0071e3] dark:text-[#0a84ff] drop-shadow-[0_0_15px_rgba(0,113,227,0.8)] dark:drop-shadow-[0_0_20px_rgba(10,132,255,1)]">.</span>dev
       </motion.h1>
     </motion.div>
   );

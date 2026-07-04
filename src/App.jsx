@@ -28,9 +28,7 @@ function App() {
 
       <Avatar />
 
-      {/* Main Layout Layer (Relative for Z-Index management) */}
       <div className="relative flex flex-col min-h-dvh w-full">
-        {/* Ambient Depth Backgrounds (Global - Now covers full scroll height) */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-center">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -66,18 +64,17 @@ function App() {
           />
         </div>
 
-        {/* Content Layer */}
-        <div className="flex-grow flex flex-col items-center justify-center relative z-10 w-full pt-[5vh] pb-[5vh]">
+        <main className="relative z-10 flex flex-grow flex-col items-center justify-center w-full px-5 py-24 sm:px-8 sm:py-20">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1 }}
+            transition={{ delay: 2.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex flex-col items-center"
           >
             <ThemeToggle />
             <Hero />
           </motion.div>
-        </div>
+        </main>
 
         <Footer />
       </div>

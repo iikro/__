@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion'; // eslint-disable-line no-unused-vars
 
 export default function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false);

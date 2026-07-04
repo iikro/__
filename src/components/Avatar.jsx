@@ -7,29 +7,22 @@ const Avatar = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.5, x: -20 }}
+      initial={{ opacity: 0, scale: 0.8, y: -8 }}
       animate={{ opacity: 1, scale: 1, x: 0 }}
-      transition={{ delay: 3.2, duration: 0.8, type: 'spring', stiffness: 200, damping: 20 }}
-      className="fixed top-[max(2.5vh,1rem)] left-[max(2.5vw,1rem)] z-50 flex items-center gap-3"
+      transition={{ delay: 2.85, duration: 0.65, type: 'spring', stiffness: 220, damping: 24 }}
+      className="fixed left-4 top-4 z-50 flex items-center gap-3 sm:left-6 sm:top-6"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Avatar circle */}
       <div className="relative cursor-pointer">
-        {/* Glow ring */}
-        <div className="absolute inset-0 rounded-full bg-[#0071e3]/30 dark:bg-[#0a84ff]/30 blur-md scale-110 animate-pulse" />
-        {/* Photo */}
         <img
           src={avatarUrl}
           alt="Icaro Pereira"
-          className="relative w-10 h-10 md:w-12 md:h-12 rounded-full object-cover object-top ring-2 ring-[#0071e3]/60 dark:ring-[#0a84ff]/60 shadow-lg"
-          style={{ boxShadow: '0 0 12px rgba(0, 113, 227, 0.4)' }}
+          className="relative h-11 w-11 rounded-full object-cover object-top ring-1 ring-black/10 shadow-[0_10px_30px_rgba(15,23,42,0.16)] dark:ring-white/15 dark:shadow-[0_12px_34px_rgba(0,0,0,0.42)] sm:h-12 sm:w-12"
         />
-        {/* Online indicator */}
-        <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white dark:border-black shadow-sm" />
+        <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#34c759] shadow-sm dark:border-[#050507]" />
       </div>
 
-      {/* Tooltip */}
       <AnimatePresence>
         {hovered && (
           <motion.div
@@ -37,10 +30,10 @@ const Avatar = () => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -8, scale: 0.92 }}
             transition={{ type: 'spring', stiffness: 380, damping: 24 }}
-            className="glass-material px-4 py-2 rounded-xl text-[0.7rem] font-medium tracking-wide text-gray-700 dark:text-gray-200 whitespace-nowrap shadow-lg"
+            className="glass-material whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-semibold text-[#5f6670] dark:text-[#d7dce5]"
           >
-            <span className="text-gray-400 dark:text-gray-500">status: </span>
-            <span className="text-green-400 font-semibold">openToWork</span>
+            <span className="text-[#8d96a3] dark:text-[#8f98a6]">status: </span>
+            <span className="font-semibold text-[#1f9d55] dark:text-[#34c759]">openToWork</span>
           </motion.div>
         )}
       </AnimatePresence>
